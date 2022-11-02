@@ -1,0 +1,24 @@
+{{#if orders.length}}
+<table class="table table-striped w-100">
+	<tr>
+		<th>Numero orden</th>
+		<th>Estado</th>
+		<th>Fecha</th>
+		<th>Items</th>
+		<th>Cantidad</th>
+		<th>Detalle</th>
+	</tr>
+	{{#each orders}}
+	<tr>
+		<td>{{this.numero}}</td>
+		<td>{{this.estado}}</td>
+		<td>{{this.fecha}}</td>
+		<td>{{this.cantidadTotal}}</td>
+		<td>${{this.importeTotal}}</td>
+		<td><a href="" name="viewOrderBtn" id="{{this.numero}}">Ver</a></td>
+	</tr>
+	{{/each}}
+</table>
+{{else}}
+<h3 class="alert alert-warning">Aun no tiene ordenes</h3>
+{{/if}}

@@ -1,0 +1,26 @@
+<h3>Mensajes no leidos</h3>
+{{#if noLeidos.length}}
+<table>
+	{{#each noLeidos}}
+	<tr>
+		<td><a href="{{this.link}}">Ver</a></td>
+		<td>{{this.nombreApellido}}</td>
+		<td>{{this.email}}</td>
+	</tr>
+	{{/each}}
+</table>
+{{else}}
+<h3 class="alert alert-warning">No hay usuarios con mensajes sin leer</h3>
+{{/if}}
+<p></p>
+<h3>Mensajes leidos</h3>
+{{#if leidos.length}}
+<table>
+	{{#each leidos}}
+	<tr>
+		<td><a href="{{this.link}}">Ver</a></td>
+		<td>{{this.nombreApellido}}</td>
+		<td>{{this.email}}</td>
+	</tr>{{/each}}
+</table>
+{{/if}}

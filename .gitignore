@@ -1,0 +1,6 @@
+node_modules/
+logs/*
+uploads/avatars/*
+!uploads/avatars/
+.env.development
+.env.production

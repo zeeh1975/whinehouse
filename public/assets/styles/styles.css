@@ -1,0 +1,91 @@
+body {
+	/* padding-top: 50px; */
+	background-image: linear-gradient(90deg, #74EBD5 0%, #9FACE6 100%);
+	min-height: 100vh;
+}
+
+nav {
+	background-image: linear-gradient(90deg, #9FACE6 0%, #74EBD5 100%);
+}
+
+.float {
+	position: fixed;
+	width: 120px;
+	height: 60px;
+	top: 40px;
+	right: 40px;
+	border-radius: 50px;
+	text-align: center;
+}
+
+.my-float {
+	margin-top: 22px;
+}
+
+/* workaround para bootstrap */
+.intl-tel-input {
+	display: table-cell;
+}
+
+.intl-tel-input .selected-flag {
+	z-index: 4;
+}
+
+.intl-tel-input .country-list {
+	z-index: 5;
+}
+
+.input-group .intl-tel-input .form-control {
+	border-top-left-radius: 4px;
+	border-top-right-radius: 0;
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 0;
+}
+
+.valign {
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+	/* vendor prefixes omitted due to brevity */
+}
+
+.badge:after {
+	content: attr(value);
+	font-size: 12px;
+	color: #fff;
+	background: red;
+	border-radius: 50%;
+	padding: 5px 5px;
+	position: relative;
+	left: -10px;
+	top: -10px;
+	opacity: 0.8;
+	width: 1.3rem;
+	height: 1.3rem;
+}
+
+.cartbutton {
+	cursor: pointer;
+	color: white;
+	display: inline-block;
+	/* Inline elements with width and height. TL;DR they make the icon buttons stack from left-to-right instead of top-to-bottom */
+	position: relative;
+	/* All 'absolute'ly positioned elements are relative to this one */
+	padding: 2px 5px;
+	/* Add some padding so it looks nice */
+}
+
+/* Make the badge float in the top right corner of the button */
+.cartbutton__badge {
+	background-color: #fa3e3e;
+	border-radius: 2px;
+	color: white;
+
+	padding: 1px 3px;
+	font-size: 12px;
+
+	position: absolute;
+	/* Position the badge within the relatively positioned button */
+	top: -8px;
+	right: 0;
+}

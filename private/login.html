@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Formulario de ingreso</title>
+    <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/styles/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.17/dist/sweetalert2.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/normalizr@3.6.1/dist/normalizr.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="/assets/scripts/const.js" defer></script>
+    <script src="/assets/scripts/util.js" defer></script>
+    <script src="/assets/scripts/user.js" defer></script>
+    <script src="/assets/scripts/navbar.js" defer></script>
+    <script src="/assets/scripts/cartIcon.js" defer></script>
+    <script src="/assets/scripts/login.js" defer></script>
+</head>
+
+<body>
+    <div w3-include-html="assets/inc/float_navbar.html"></div>
+    <div w3-include-html="assets/inc/navbar.html"></div>
+    <section class="position-relative py-4 py-xl-5">
+        <div class="container position-relative">
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-8 col-lg-6 col-xl-5 col-xxl-4">
+                    <div class="card mb-5">
+                        <div class="card-body p-sm-5 shadow-lg bg-info">
+                            <h2 class="text-center mb-4">Ingreso</h2>
+                            <form id="loginform">
+                                <div class="form-floating mb-3 ">
+                                    <input class="form-control shadow bg-light" type="email" name="email" autofocus=""
+                                        required="" placeholder="Correo electrónico">
+                                    <label class="form-label" for="email">Correo electrónico</label>
+                                </div>
+                                <div class="form-floating mb-3 ">
+                                    <input class="form-control shadow bg-light" type="password" name="password"
+                                        autofocus="" required="" placeholder="Contraseña">
+                                    <label class="form-label" for="password">Contraseña</label>
+                                </div>
+                                <div>
+                                    <button class="btn btn-success shadow d-block w-100" type="submit"
+                                        id="loginBtn">Ingresar</button>
+                                </div>
+                            </form>
+                            <br>
+                            <div>
+                                <p class="ms-3 mb-2 mt-2">
+                                    ¿No tenes usuario?
+                                    <span class="pull-right">
+                                        <button id="signupbutton"
+                                            class="btn btn-primary shadow d-inline ms-3">Registrate</button>
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

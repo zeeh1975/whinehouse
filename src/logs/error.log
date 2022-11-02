@@ -1,0 +1,11 @@
+2022-09-25T14:42:29.2929 ERROR Error signup:  Cannot read properties of undefined (reading 'find')
+2022-09-25T14:48:32.3232 ERROR Cannot read properties of undefined (reading 'getById')
+2022-09-25T14:48:38.3838 ERROR Cannot read properties of undefined (reading 'getById')
+2022-09-25T14:49:50.5050 ERROR Cannot read properties of undefined (reading 'getById')
+2022-09-25T14:50:13.1313 ERROR Cannot read properties of undefined (reading 'getById')
+2022-09-25T15:27:05.055 ERROR productosService.getById is not a function
+2022-09-25T15:29:15.1515 ERROR productosService.getById is not a function
+2022-09-25T15:30:20.2020 ERROR productosService.getById is not a function
+2022-09-27T14:45:20.2020 ERROR Cart
+2022-09-27T14:45:20.2020 ERROR Error interno del servidor: Can't set headers after they are sent.
+2022-09-27T14:45:53.5353 ERROR Cart

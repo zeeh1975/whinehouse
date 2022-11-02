@@ -1,0 +1,17 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(rel="stylesheet" type="text/css" href="assets/styles/styles.css")
+    title Configuracion del servidor
+  body 
+    ul
+      li Entorno: #{infoPage.entorno}
+      li Path de ejecución: #{infoPage.execPath}
+      li Nombre de la plataforma: #{infoPage.platform}
+      li Process id: #{infoPage.processId}
+      li Versión de node.js: #{infoPage.nodeVersion}
+      li Memoria total reservada: #{infoPage.memoryUsage} kb
+      li Numero de procesadores: #{infoPage.numCPUs}

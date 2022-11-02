@@ -1,0 +1,17 @@
+{{#if usuario}}
+<h3>{{usuario.nombreApellido}} / {{usuario.email}}</h3>
+{{/if}}
+{{#if mensajes.length}}
+{{#each mensajes}}
+<div>
+	<span style="color:brown;">{{this.timestamp}}</span> ::
+	{{#if this.isSupportResponse}}
+	<span style="color:red;"><strong>[soporte] {{this.mensaje}}</strong></span>
+	{{else}}
+	<i style="color:green;">{{this.mensaje}}</i>
+	{{/if}}
+</div>
+{{/each}}
+{{else}}
+<h3 class="alert alert-warning">No hay mensajes</h3>
+{{/if}}
