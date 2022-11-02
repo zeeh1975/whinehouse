@@ -30,7 +30,7 @@ app.use("/", router);
 socketConfig();
 
 // creo el servidor de Express en el puerto indicado
-if (config.serverMode === "FORK") {
+if (config.serverMode != "CLUSTER") {
   const server = httpServer.listen(config.serverPort, () => {
     logger.info(`Servidor fork escuchando en el puerto ${server.address().port}`);
   });
