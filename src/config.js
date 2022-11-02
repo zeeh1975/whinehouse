@@ -13,7 +13,7 @@ const nodeMailerPass = process.env.NODEMAILER_PASS;
 
 const adminMail = process.env.ADMIN_MAIL;
 
-const serverPort = process.env.SERVER_PORT || 8080;
+const serverPort = process.env.PORT || 8080;
 const serverMode = process.env.SERVER_MODE;
 
 const sessionSecret = process.env.SESSION_SECRET;
