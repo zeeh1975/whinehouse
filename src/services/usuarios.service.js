@@ -2,6 +2,7 @@ import { usuariosDao } from "../daos/index.js";
 import { validateTextField, validateNumericField, complexPassword } from "../lib/validator.js";
 import { validEmailRegex } from "../const.js";
 import config from "../config.js";
+import { WSErrorResponse } from "../lib/util.js";
 
 function validaUsuario(usuario) {
   let validacion = validateTextField(usuario, "nombreApellido");
@@ -59,8 +60,8 @@ async function getById(id) {
 }
 
 async function save(newData) {
-  const validacion = validaProducto(newData);
-  if (validacion != "") throw validacion;
+  const validacion = validaUsuario(newData);
+  if (validacion != "") throw new WSErrorResponse(validacion);
   return await usuariosDao.save(newData);
 }
 

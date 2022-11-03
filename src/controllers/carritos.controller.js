@@ -32,7 +32,10 @@ function getItemCount(cartItems) {
 
 const addCarrito = async (req, res) => {
   try {
-    const idCarrito = await carritosService.save({ productos: [] });
+    const idCarrito = await carritosService.save({
+      usuario: req.session.passport.user,
+      productos: [],
+    });
     res.status(HTTP_STATUS_CREATED).send(new WSResponse({ idCarrito }, MESSAGE_CREATED));
   } catch (error) {
     error = parceError(error);

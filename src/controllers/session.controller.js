@@ -78,8 +78,10 @@ const getSignupPage = async (req, res) => {
 };
 
 const postSignupFailed = async (req, res) => {
-  const message = { message: req.session.messages[req.session.messages.length - 1] };
-  res.status(HTTP_STATUS_ERROR_BAD_REQUEST).send(message);
+  const message = req.session.messages[req.session.messages.length - 1];
+  res
+    .status(HTTP_STATUS_ERROR_BAD_REQUEST)
+    .send(new WSErrorResponse(message, HTTP_STATUS_ERROR_BAD_REQUEST));
 };
 
 export default {

@@ -22,14 +22,14 @@ El proyecto se encuentra alojado en Render y puede accederse mediante la siguien
 *Rutas*
 Ruta|Metodo|Accion|Autenticado|Tipo parametros|Tipo respuesta
 -|-|-|-|-|-
-/api/productos/|GET|Lista todos los productos|Si|N/A|json
-/api/productos/|POST|Agrega un producto|Si|json|json
+/api/productos|GET|Lista todos los productos|Si|N/A|json
+/api/productos|POST|Agrega un producto|Si|json|json
 /api/productos/:id|GET|Obtiene el detalle del producto identificado por :id|Si|N/A|json
 /api/productos/:id|PUT|Actualiza el producto identificado por :id|Admin|json|json
 /api/productos/:id|DELETE|Elimina el producto identificado por :id|Admin|N/A|json
 /api/productos/categoria/:categoria|GET|Lista todos los productos de la categoria :categoria|Si|N/A|json
-/api/carrito/|POST|Crea un nuevo carrito|Si|N/A|json
-/api/carrito/:id|DELETE|Elimina el carrito identificado por :id|Si|N/A|json
+/api/carrito|POST|Crea un nuevo carrito|Si|N/A|json
+/api/carrito:id|DELETE|Elimina el carrito identificado por :id|Si|N/A|json
 /api/carrito/:id/productos|GET|Lista todos los productos del carrito :id|Si|N/A|json
 /api/carrito/:id/productos/|POST|Agrega un producto al carrito :id|Si|json|json
 /api/carrito/:id/productos/|DELETE|Vacia el carrito :id|Si|N/A|json
@@ -51,7 +51,7 @@ Ruta|Metodo|Accion|Autenticado|Tipo parametros|Tipo respuesta
 /profile|GET|Devuelve la vista de perfil de usuario|Si|N/A|html
 /cart|GET|Devuelve la vista de carrito|Si|N/A|html
 /chat|GET|Devuelve la vista de mensajeria|Si|N/A|html
-/chat:usuario|GET|Devuelve la vista de mensajeria de :usuario|Admin|N/A|html
+/chat/:usuario|GET|Devuelve la vista de mensajeria de :usuario|Admin|N/A|html
 /serverconfig|GET|Devuelve la vista de informacion del servidor (Plantilla Pug)|Si|N/A|html
 /serverparams|GET|Devuelve la vista de parametros de configuracion del servidor (Plantilla Handlebars)|Si|N/A|html
 /geterror500|GET|Simula un error interno del servidor para obtener la vista de error 500 (Plantilla Ejs)|No|N/A|html

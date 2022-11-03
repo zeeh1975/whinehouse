@@ -5,7 +5,7 @@ import passportLocal from "passport-local";
 import { carritosService, usuariosService } from "../services/index.js";
 import logger from "../lib/logger.js";
 import { sendMail } from "../lib/mailer.js";
-import { validImageFile, deleteFile } from "../lib/util.js";
+import { validImageFile, deleteFile, WSErrorResponse } from "../lib/util.js";
 import { MESSAGE_INVALID_USER } from "../const.js";
 import { app } from "../global.js";
 
@@ -64,13 +64,15 @@ function passportConfig() {
             try {
               deleteFile(req.file.path);
             } catch (error) {}
-            return done(null, false, { message: "El email ya está registrado." });
+            done(null, false, "El email ya está registrado.");
+            return;
           } else {
-            if (!validImageFile(req.file.path)) {
+            if (!(req && req.file && req.file.path && validImageFile(req.file.path))) {
               try {
                 deleteFile(req.file.path);
               } catch (error) {}
-              return done(null, false, { message: "La imagen de perfil no es valida." });
+              done(null, false, "La imagen de perfil no es valida.");
+              return;
             }
 
             let newUser = {
@@ -84,7 +86,17 @@ function passportConfig() {
               isAdmin: false,
             };
 
-            const id = await usuariosService.save(newUser);
+            let id;
+            try {
+              id = await usuariosService.save(newUser);
+            } catch (error) {
+              if (error instanceof WSErrorResponse) {
+                done(null, false, error.message);
+                return;
+              } else {
+                throw error.message;
+              }
+            }
             newUser = await usuariosService.getById(id);
             let carritoId = await carritosService.save({ usuario: newUser.id, productos: [] });
             newUser.carrito = carritoId;
@@ -111,14 +123,19 @@ function passportConfig() {
               "Bienvenido a WineHouse - Tienda de vinos",
               htmlBienvenida
             );
-            return done(null, newUser);
+            done(null, newUser);
+            return;
           }
         } catch (error) {
-          logger.error(`Error signup:  ${error.message}`);
+          let message = error;
+          if (error.message) {
+            message = error.message;
+          }
+          logger.error(`Error signup:  ${message}`);
           try {
             deleteFile(req.file.path);
           } catch (error) {}
-          return done(null, false, "Fallo en la registración.");
+          done(null, false, "Fallo en la registración.");
         }
       }
     )

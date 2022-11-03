@@ -15,12 +15,16 @@ function printObj(objeto) {
 }
 
 function validImageFile(img) {
-  let result = false;
-  try {
-    const dimensions = sizeOf(img);
-    result = true;
-  } catch (error) {}
-  return result;
+  if (img) {
+    let result = false;
+    try {
+      const dimensions = sizeOf(img);
+      result = true;
+    } catch (error) {}
+    return result;
+  } else {
+    return false;
+  }
 }
 
 function deleteFile(filename) {

@@ -1,22 +1,22 @@
 const validateTextField = (object, field) => {
   if (!object.hasOwnProperty(field)) {
-    return `El objecto no tiene una clave '${field}'`;
+    return `No hay un campo '${field}'`;
   }
   if (typeof object[field] !== "string") {
-    return `La clave '${field}' debe ser texto`;
+    return `El campo '${field}' debe ser texto`;
   }
   if (object[field].trim() == "") {
-    return `La clave '${field}' no puede estar vacía`;
+    return `El campo '${field}' no puede estar vacío`;
   }
   return "";
 };
 
 const validateNumericField = (object, field) => {
   if (!object.hasOwnProperty(field)) {
-    return `El objecto no tiene una clave '${field}'`;
+    return `No hay un campo '${field}'`;
   }
-  if (isNaN(object[field])) {
-    return `La clave '${field}' debe ser un nuemro`;
+  if (isNaN(parseInt(object[field]))) {
+    return `El campo '${field}' debe ser numerico`;
   }
   return "";
 };

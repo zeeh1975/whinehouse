@@ -1,7 +1,11 @@
 import config from "../config.js";
 import session from "express-session";
 import MongoStore from "connect-mongo";
-import { HTTP_STATUS_ERROR_UNAUTHORIZED, MESSAGE_UNAUTHORIZED_RESOURCE } from "../const.js";
+import {
+  HTTP_STATUS_ERROR_UNAUTHORIZED,
+  MESSAGE_UNAUTHORIZED_RESOURCE,
+  MESSAGE_UNAUTHORIZED_RESOURCE_ADMIN,
+} from "../const.js";
 import { app } from "../global.js";
 import { WSErrorResponse } from "../lib/util.js";
 
@@ -49,26 +53,21 @@ function sessionConfig() {
   app.use(sessionMiddleware);
 }
 
-function unauthorized(res) {
-  res
-    .status(HTTP_STATUS_ERROR_UNAUTHORIZED)
-    .send(
-      new WSErrorResponse(
-        `No tiene permiso para realizar la operacion (${req.method}:${req.originalUrl})`,
-        HTTP_STATUS_ERROR_UNAUTHORIZED
-      )
-    );
-}
-
 const isAdmin = (req, res, next) => {
   if (req.isAuthenticated()) {
     if (req.user.isAdmin) {
       next();
     } else {
-      unauthorized(res);
+      res
+        .status(HTTP_STATUS_ERROR_UNAUTHORIZED)
+        .send(
+          new WSErrorResponse(MESSAGE_UNAUTHORIZED_RESOURCE_ADMIN, HTTP_STATUS_ERROR_UNAUTHORIZED)
+        );
     }
   } else {
-    unauthorized(res);
+    res
+      .status(HTTP_STATUS_ERROR_UNAUTHORIZED)
+      .send(new WSErrorResponse(MESSAGE_UNAUTHORIZED_RESOURCE, HTTP_STATUS_ERROR_UNAUTHORIZED));
   }
 };
 

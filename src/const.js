@@ -18,6 +18,8 @@ const MESSAGE_CART_NOT_FOUND = "El id de carrito no es valido";
 const MESSAGE_EMPTY_CART = "El carrito esta vacio";
 const MESSAGE_INVALID_USER = "Usuario o contraseña no validos";
 const MESSAGE_UNAUTHORIZED_RESOURCE = "No tiene autorizacion para acceder este recurso";
+const MESSAGE_UNAUTHORIZED_RESOURCE_ADMIN =
+  "Se requiere permiso de administrador para acceder este recurso";
 const MESSAGE_INTERNAL_SERVER_ERROR = "Ha ocurrido un error interno del servidor";
 const MESSAGE_CREATED = "created";
 const MESSAGE_DELETED = "deleted";
@@ -41,6 +43,7 @@ export {
   MESSAGE_EMPTY_CART,
   MESSAGE_INVALID_USER,
   MESSAGE_UNAUTHORIZED_RESOURCE,
+  MESSAGE_UNAUTHORIZED_RESOURCE_ADMIN,
   MESSAGE_INTERNAL_SERVER_ERROR,
   MESSAGE_CREATED,
   MESSAGE_DELETED,

@@ -32,7 +32,6 @@ function doLogin() {
 }
 
 async function signup() {
-  // chequear el telefono
   const phoneNumber = phoneInput.getNumber();
   if (!phoneInput.isValidNumber()) {
     phonenumberInvalidFeedback.style.display = "block";
@@ -40,7 +39,7 @@ async function signup() {
     phoneInputField.focus();
     return;
   }
-  // chequear la contraseña
+
   if (signupForm.password.value != signupForm.passwordconfirmation.value) {
     passwordConfirmation.classList.add("is-invalid");
     passwordConfirmation.focus();
