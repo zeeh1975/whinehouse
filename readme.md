@@ -1,6 +1,6 @@
 # **Backend Coderhouse - Proyecto Final**
 
-![Portada](portadaWinehouse.png)
+![Portada](./public/assets/images/winehouse_main.png)
 
 ## Winehouse - Tienda de vinos
 
@@ -55,47 +55,58 @@ Ruta|Metodo|Accion|Autenticado|Tipo parametros|Tipo respuesta
 /serverconfig|GET|Devuelve la vista de informacion del servidor (Plantilla Pug)|Si|N/A|html
 /serverparams|GET|Devuelve la vista de parametros de configuracion del servidor (Plantilla Handlebars)|Si|N/A|html
 /geterror500|GET|Simula un error interno del servidor para obtener la vista de error 500 (Plantilla Ejs)|No|N/A|html
-<br/>
-<br/>
-**Guia de usuario**
+
+## Guia de usuario
 
 Al ingresar a la web se visualiza la vista raiz:
+
 ![Vista raiz](./img/usuarioRoot.png)
 
-Que contiene la barra de navegación:
+La barra de navegación:
+
 ![Barra navegación](./img/usuarioBarraNavegacion.png)
 
 El acceso a cualquiera de las opciones por parte de un usuario no autenticado deriva a la pagina de ingreso:
+
 ![Ingreso](./img/usuarioLogin.png)
 
 En la misma se puede acceder a la pagina de registro:
+
 ![Registro](./img/usuarioRegistro.png)
 
 Una vez autenticado el usuario puede acceder a la vista de productos:
+
 ![Productos](./img/usuarioProductos.png)
 
 Y a la página con los datos de usuario:
+
 ![Mis cuenta](./img/usuarioProfile.png)
 
 En caso que el usuario ya haya realizado pedidos las ordenes aparecerán al final, haciendo clic en ver se podrá visualizar el detalle de la orden:
+
 ![Orden](./img/usuarioProfileOrder.png)
 
 Por ultimo podrá acceder al centro de mensajes:
+
 ![Mensajes](./img/usuarioChat.png)
 
-**Guia de administrador**
+## Guia de administrador
 Los usuarios administradores deben crearse de manera manual con el campo isAdmin: true en la colección de usuarios.
 La cualidad de administrado le permite operaciones especiales en ciertas vistas.
 En la vista de productos, aparece un boton para agregar nuevos productos al final de la pagina:
+
 ![Nuevo producto](./img/adminNuevoProducto.png)
 
 En cada producto aparecen dos iconos que permiten editar o eliminar el producto:
+
 ![Modificar/Eliminar](./img/adminModificarEliminar.png)
 
 Al ingresar al chat se pueden ver los mensajes de todos los usuarios agrupados entre no leidos y leidos:
+
 ![Centro de mensajes](./img/adminChat.png)
 
 Haciendo clic en ver se puede enviar una respuesta al usuario:
+
 ![Mensajes usuario](./img/adminChatUsuario.png)
 
 Aquí se puede enviar una respuesta esta acción marca por leídos los mensajes), solo marcar como leidos o volver atras.
