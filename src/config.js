@@ -1,7 +1,7 @@
 import os from "os";
 import dotenv from "dotenv";
 let entorno = process.env.NODE_ENV || "development";
-entorno = entorno.trim();
+entorno = entorno.trim().toLowerCase();
 dotenv.config({ path: `.env.${entorno}` });
 
 // MongoDB

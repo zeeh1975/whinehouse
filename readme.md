@@ -111,9 +111,3 @@ Haciendo clic en ver se puede enviar una respuesta al usuario:
 
 Aquí se puede enviar una respuesta esta acción marca por leídos los mensajes), solo marcar como leidos o volver atras.
 
-**Caracteristicas no solicitadas**
-
- - Frontend funcional
- - Sanitización de los inputs para evitar ataques Cross Site Scripting (XSS)
- 
- 
