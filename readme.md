@@ -4,7 +4,7 @@
 
 ## Winehouse - Tienda de vinos
 
-El objetivo del proyecto es proveer un proyecto en nodejs que cumpla con la consigna del trabajo final del curso de Backend de Coderhouse.
+El objetivo de este repositorio es proveer un proyecto en nodejs que cumpla con la consigna del trabajo final del curso de Backend de Coderhouse.
 
 El proyecto se encuentra alojado en Render y puede accederse mediante la siguiente URL [https://whinehouse.onrender.com](https://whinehouse.onrender.com)
 
@@ -92,7 +92,7 @@ Por ultimo podrá acceder al centro de mensajes:
 
 ## Guia de administrador
 Los usuarios administradores deben crearse de manera manual con el campo isAdmin: true en la colección de usuarios.
-La cualidad de administrado le permite operaciones especiales en ciertas vistas.
+La calidad de administrador le permite operaciones especiales en ciertas vistas.
 En la vista de productos, aparece un boton para agregar nuevos productos al final de la pagina:
 
 ![Nuevo producto](./img/adminNuevoProducto.png)
