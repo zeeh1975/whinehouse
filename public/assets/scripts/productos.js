@@ -11,7 +11,6 @@ let cantidadProductosCarrito = 0;
 let processProduct;
 let activeModalProductForm;
 
-// borrar un carrito
 async function borrarCarrito(carrito) {
   const errorMsg = "No fue posible borrar el carrito";
   try {
@@ -26,8 +25,6 @@ async function borrarCarrito(carrito) {
   }
 }
 
-// Productos
-// Agrega un nuevo producto
 async function addProduct() {
   try {
     const responseData = await fetchRequest(
@@ -37,6 +34,7 @@ async function addProduct() {
         nombre: productForm.nombre.value,
         descripcion: productForm.descripcion.value,
         codigo: productForm.codigo.value,
+        categoria: productForm.categoria.value,
         foto: productForm.foto.value,
         precio: productForm.precio.value,
         stock: productForm.stock.value,
@@ -46,7 +44,6 @@ async function addProduct() {
       activeModalProductForm.hide();
       getProductos();
     } else {
-      // se muestra un mensaje con el error
       response = await responseData.json();
       mostrarError(response);
     }
@@ -55,7 +52,6 @@ async function addProduct() {
   }
 }
 
-// Actualiza los datos de un producto
 async function updateProduct(productId) {
   try {
     const responseData = await fetchRequest(
@@ -65,6 +61,7 @@ async function updateProduct(productId) {
         nombre: productForm.nombre.value,
         descripcion: productForm.descripcion.value,
         codigo: productForm.codigo.value,
+        categoria: productForm.categoria.value,
         foto: productForm.foto.value,
         precio: productForm.precio.value,
         stock: productForm.stock.value,
@@ -83,15 +80,12 @@ async function updateProduct(productId) {
   }
 }
 
-// borra un producto
 async function deleteProduct(productId) {
   try {
     const responseData = await fetchRequest(productosURL + "/" + productId, "DELETE");
     if (responseData.status === HTTP_STATUS_OK) {
       getProductos();
     } else {
-      // si el resultado no es el esperado
-      // se muestra un mensaje con el error
       response = await responseData.json();
       mostrarError(response);
     }
@@ -100,7 +94,6 @@ async function deleteProduct(productId) {
   }
 }
 
-// obtiene los detalles de un producto
 async function getProductData(productId) {
   try {
     const responseData = await fetchRequest(productosURL + "/" + productId, "GET");
@@ -115,8 +108,6 @@ async function getProductData(productId) {
   }
 }
 
-// Contenido
-// renderiza la lista de productos mediante la plantilla predefinida
 function makeProductTable(productos) {
   return fetch(host + "/assets/views/tabla_productos.hbs")
     .then((respuesta) => respuesta.text())
@@ -131,7 +122,6 @@ function makeProductTable(productos) {
     });
 }
 
-// obtiene la lista de productos y la inserta en la pagina
 async function getProductos() {
   const errorMsg = "No fue posible obtener la lista de productos";
   try {
@@ -150,7 +140,6 @@ async function getProductos() {
   }
 }
 
-// agrega un producto al carrito
 async function agregarProductoCarrito(idProducto) {
   const errorMsg = "No fue posible agregar el producto al carrito";
   try {
@@ -174,7 +163,6 @@ async function agregarProductoCarrito(idProducto) {
   }
 }
 
-// Presenta el formulario para editar un producto
 async function editProduct(productId) {
   modalProductFormTitle.innerHTML = "Editar producto";
   activeModalProductForm = new bootstrap.Modal(modalProductForm);
@@ -184,6 +172,7 @@ async function editProduct(productId) {
     productForm.nombre.value = producto.nombre;
     productForm.descripcion.value = producto.descripcion;
     productForm.codigo.value = producto.codigo;
+    productForm.categoria.value = producto.categoria;
     productForm.foto.value = producto.foto;
     productForm.precio.value = producto.precio;
     productForm.stock.value = producto.stock;
@@ -193,7 +182,6 @@ async function editProduct(productId) {
   }
 }
 
-// Presenta el formulario para agregar un producto
 async function addNewProduct(productId) {
   modalProductFormTitle.innerHTML = "Agregar producto";
   activeModalProductForm = new bootstrap.Modal(modalProductForm);
@@ -202,7 +190,6 @@ async function addNewProduct(productId) {
   activeModalProductForm.show();
 }
 
-// Confirma la elimiancion de un producto
 async function removeProduct(productId) {
   result = await Swal.fire({
     title: "¿Está seguro que quiere eliminar el producto?",
@@ -215,12 +202,9 @@ async function removeProduct(productId) {
   });
 
   if (result.isDenied) {
-    // eliminar
     deleteProduct(productId);
   }
 }
-
-// Eventos
 
 if (listaProductos) {
   listaProductos.addEventListener("click", (e) => {
@@ -250,14 +234,12 @@ document.addEventListener("click", function (e) {
   }
 });
 
-// pone el foco en el campo nombre al mostrar el modal
 if (modalProductForm) {
   modalProductForm.addEventListener("shown.bs.modal", (e) => {
     productForm.nombre.focus();
   });
 }
 
-// submit formulario productos
 if (productForm) {
   productForm.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -265,7 +247,6 @@ if (productForm) {
   });
 }
 
-// Configuraciones de la app
 async function run() {
   if (!usuario) {
     await getUser();

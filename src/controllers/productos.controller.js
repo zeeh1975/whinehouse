@@ -14,11 +14,11 @@ import { productosService } from "../services/index.js";
 
 const getProductos = async (req, res) => {
   try {
-    const id = req.params.id;
+    const categoria = req.params.categoria;
     let response;
-    if (id) {
+    if (categoria) {
       response = new WSResponse(
-        await productosService.getAll({ categoria: id }, { nombre: 1 }),
+        await productosService.getAll({ categoria }, { nombre: 1 }),
         MESSAGE_OK
       );
     } else {

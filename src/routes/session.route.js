@@ -53,6 +53,6 @@ router
   .get(sessionController.postSignupFailed)
   .post(sessionController.postSignupFailed);
 
-router.route("/user").get(usuariosController.getUser);
+//router.route("/user").get(usuariosController.getUser);
 
 export default router;

@@ -4,7 +4,6 @@ import { isAdmin } from "../middleware/session.js";
 
 const router = Router();
 
-router.route("/categoria/:id").get(productosController.getProductos);
 router
   .route("/")
   .get(productosController.getProductos)
@@ -14,5 +13,6 @@ router
   .get(productosController.getProducto)
   .put(isAdmin, productosController.updateProducto)
   .delete(isAdmin, productosController.deleteProducto);
+router.route("/categoria/:categoria").get(productosController.getProductos);
 
 export default router;
