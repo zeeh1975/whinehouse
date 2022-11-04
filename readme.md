@@ -115,6 +115,19 @@ Por ultimo podrá acceder al centro de mensajes:
 
 ![Mensajes](./img/usuarioChat.png)
 
+*Carrito*
+La cantidad de items agregados se puede observar en el icono del carrito:
+
+![Icono carrito](./img/usuarioIconoCarrito.png)
+
+Haciendo clic en ese icono se accede a la vista de carrito:
+
+![Carrito](./img/usuarioCarrito.png)
+
+Aqui se puede completar una orden o vaciar el carrito, o eliminar algun producto particular del carrito usando el icono:
+
+![Eliminar del carrito](./img/usuarioCarritoDelete.png)
+
 ## Guia de administrador
 
 Los usuarios administradores deben crearse de manera manual con el campo isAdmin: true en la colección de usuarios.
