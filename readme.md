@@ -116,6 +116,7 @@ Por ultimo podrá acceder al centro de mensajes:
 ![Mensajes](./img/usuarioChat.png)
 
 *Carrito*
+
 La cantidad de items agregados se puede observar en el icono del carrito:
 
 ![Icono carrito](./img/usuarioIconoCarrito.png)
